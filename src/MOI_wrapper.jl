@@ -780,8 +780,8 @@ function MOI.optimize!(model::Optimizer)
     model.inner.x = [v.start === nothing ? 0.0 : v.start
                      for v in model.variable_info]
 
-    for (name,value) in model.options
-        addOption(model.inner, sname, value)
+    for (name, value) in model.options
+        addOption(model.inner, name, value)
     end
     solveProblem(model.inner)
 
